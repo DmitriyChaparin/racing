@@ -24,12 +24,18 @@ public abstract class Transport {
 
 
     public Transport(String brand, String model, double engineVolume) {
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume=engineVolume;
+        this.brand = validateString(brand);
+        this.model = validateString(model);
+        this.engineVolume = engineVolume;
     }
 
-//    public abstract void refill();
+    public abstract void startMoving();
+
+    public abstract void stopMoving();
+
+    public static String validateString(String value) {
+        return value == null || value.isEmpty() || value.isBlank() ? "Введите данные" : value;
+    }
 
 
 }
