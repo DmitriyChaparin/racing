@@ -1,6 +1,23 @@
-public class Car extends Transport implements Competing{
+public class Car extends Transport implements Competing {
     private int maxSpeed;
     private double bestLap;
+
+    public enum BodyType {
+        SEDAN("Седан"), HATCHBACK("Хетчбек"), COUPE("Купе"), WAGON("Универсал"), SUV("Внедорожник"),
+        CUV("Кроссовер"), PICK_UP("Пикап"), VAN("Фургон"), MINIVAN("Минивэн");
+        private final String title;
+
+        BodyType(String title) {
+            this.title = title;
+         }
+
+        @Override
+        public String toString() {
+            return "Тип кузова - " + title ;
+        }
+    }
+
+
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
 

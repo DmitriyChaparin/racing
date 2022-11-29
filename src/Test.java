@@ -21,5 +21,7 @@ public class Test {
         DriverD<Bus> nina = new DriverD<>("Пазикова Нина Сергеевна",false,0);
         nina.getCanRace(paz);
         System.out.println(nina.stopMoving());
+        System.out.println(Car.BodyType.COUPE.toString());
+        System.out.println(Truck.Carrying.N_3.toString());
     }
 }

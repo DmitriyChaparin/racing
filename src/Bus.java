@@ -1,6 +1,10 @@
 public class Bus extends Transport implements Competing{
     private int maxSpeed;
     private double bestLap;
+
+    public enum Capacity{
+
+    }
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
