@@ -1,10 +1,30 @@
-public class Bus extends Transport implements Competing{
+public class Bus extends Transport implements Competing {
     private int maxSpeed;
     private double bestLap;
 
-    public enum Capacity{
+    public enum Capacity {
+        VERY_SMALL(10), SMALL(25), AVERAGE(40, 50), LARGE(60, 80), VERY_LARGE(100, 120);
+        Integer from;
+        Integer to;
 
+        Capacity(Integer to) {
+            this.to = to;
+        }
+
+        Capacity(Integer from, Integer to) {
+            this.from = from;
+            this.to = to;
+        }
+
+        @Override
+        public String toString() {
+            if (from == null) {
+                return "Вместительность до " + to;
+            }
+                return "Вместительность от " + from + ", до " + to;
+            }
     }
+
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }

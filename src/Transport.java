@@ -37,5 +37,12 @@ public abstract class Transport {
         return value == null || value.isEmpty() || value.isBlank() ? "Введите данные" : value;
     }
 
-
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                '}';
+    }
 }
