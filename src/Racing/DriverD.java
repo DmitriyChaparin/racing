@@ -1,5 +1,7 @@
-public class DriverB<T extends Car> extends Driver {
-    public DriverB(String fullName, boolean driverLicense, Integer experience) {
+package Racing;
+
+public class DriverD<T extends Bus> extends Driver {
+    public DriverD(String fullName, String driverLicense, Integer experience) {
         super(fullName, driverLicense, experience);
     }
 
@@ -19,12 +21,13 @@ public class DriverB<T extends Car> extends Driver {
     }
 
     public void getCanRace(T car) {
-        if (getDriverLicense()) {
+        if (getDriverLicense().equals("D")) {
             System.out.println("Водитель " + getFullName() + " управляет " + car.getBrand() + " " + car.getModel() + " будет участвовать в заезде");
 
         } else {
-            System.out.println("Водитель " + getFullName() + " не будет участвовать в заезде, нет водительского удостоверения");
+            System.out.println("Водитель " + getFullName() + " не будет участвовать в заезде,водительское удостоверение не той категории");
 
         }
+
     }
 }

@@ -1,32 +1,19 @@
+package Racing;
+
 public class Bus extends Transport implements Competing {
     private int maxSpeed;
     private double bestLap;
+    private Capacity capacity;
 
-    public enum Capacity {
-        VERY_SMALL(10), SMALL(25), AVERAGE(40, 50), LARGE(60, 80), VERY_LARGE(100, 120);
-        Integer from;
-        Integer to;
 
-        Capacity(Integer to) {
-            this.to = to;
-        }
 
-        Capacity(Integer from, Integer to) {
-            this.from = from;
-            this.to = to;
-        }
-
-        @Override
-        public String toString() {
-            if (from == null) {
-                return "Вместительность до " + to;
-            }
-                return "Вместительность от " + from + ", до " + to;
-            }
+    public Bus(String brand, String model, double engineVolume,Capacity capacity) {
+        super(brand, model, engineVolume);
+        this.capacity=capacity;
     }
 
-    public Bus(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+    public Capacity getCapacity() {
+        return capacity;
     }
 
     @Override
@@ -38,6 +25,22 @@ public class Bus extends Transport implements Competing {
     @Override
     public void stopMoving() {
         System.out.println("машина остановилась");
+    }
+
+    @Override
+    public void printType() {
+        if (capacity == null) {
+            System.out.println("Нет данных");
+        } else {
+            System.out.println(capacity.toString());
+        }
+
+    }
+
+    @Override
+    public boolean getDiagnosed() {
+        System.out.println(getBrand()+" в диагностики не нуждается!");
+        return true;
     }
 
     @Override

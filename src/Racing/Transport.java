@@ -1,3 +1,5 @@
+package Racing;
+
 public abstract class Transport {
     private final String brand;
     private final String model;
@@ -33,13 +35,16 @@ public abstract class Transport {
 
     public abstract void stopMoving();
 
+    public abstract void printType();
+
     public static String validateString(String value) {
         return value == null || value.isEmpty() || value.isBlank() ? "Введите данные" : value;
     }
+    public abstract boolean getDiagnosed();
 
     @Override
     public String toString() {
-        return "Transport{" +
+        return "Racing.Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", engineVolume=" + engineVolume +
