@@ -1,5 +1,8 @@
 package Racing;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
     public static void main(String[] args) {
         Car audi = new Racing.Car("Audi", "A4RS", 3.0, BodyType.CUV);
@@ -15,15 +18,43 @@ public class Test {
         Bus paz = new Bus("PAZ", "T132", 10, Capacity.SMALL);
         Bus liaz = new Bus("Liaz", "Speed77", 11.8, Capacity.LARGE);
         Bus gaz = new Bus("GAZ", "G879", 9.5, Capacity.VERY_SMALL);
-        Bus volgabus = new Bus("Volgabus", "14U0", 14, Capacity.VERY_LARGE);
+        Bus volgabus = new Bus("Volgabus", "14U0", 14, Capacity.LARGE);
 
         DriverB<Car> vova = new DriverB<>("Автомобилов Владимир Иномаркович", "B", 11);
+        DriverB<Car> misha = new DriverB<>("Улиткин Михаил Петрович", "B", 11);
+        DriverB<Car> anna = new DriverB<>("Покрышкина Анна Ивановна", "B", 11);
+
         DriverC<Racing.Truck> albert = new Racing.DriverC<>("Камазов Альберт Колёсович", "D", 2);
+        DriverC<Racing.Truck> vlad = new Racing.DriverC<>("Гоншиков Владислав Кириллович", "D", 2);
         DriverD<Racing.Bus> nina = new Racing.DriverD<>("Пазикова Нина Сергеевна", "D", 0);
 
-        getDiagnosed(audi, bmw, porsche, lada,
-                paz, liaz, gaz, volgabus,
-                kamaz, maz, scania, volvo);
+        Mechanic<Car> gena = new Mechanic<>("Гайкин Генадий", "MSI");
+        Mechanic<Car> kolia = new Mechanic<>("Колёсов Николай", "USB");
+        Mechanic<Car> lena = new Mechanic<>("Шурупова Елена", "CNN");
+
+        Sponsors tatneft = new Sponsors("ТатНефть", 3000000);
+        Sponsors azot = new Sponsors("ТольяттиАзот", 1500000);
+        Sponsors michelin = new Sponsors("Michelin", 8000000);
+
+        audi.addDriver(vova);
+        audi.addMechanic(gena, lena);
+        audi.addSponsors(azot, michelin);
+
+        volvo.addDriver(albert);
+        volvo.addMechanic(kolia);
+        volvo.addSponsors(tatneft);
+
+        paz.addDriver(nina);
+        paz.addMechanic(lena);
+        paz.addSponsors(michelin);
+
+
+        List<Transport> transports = List.of(audi, volvo, paz);
+
+
+        //  getDiagnosed(audi, bmw, porsche, lada,
+// paz, liaz, gaz, volgabus,
+//  kamaz, maz, scania, volvo);
 
 //        vova.getCanRace(lada);
 //        albert.getCanRace(kamaz);
@@ -37,6 +68,31 @@ public class Test {
 //        System.out.println(Carrying.N_3);
 //        System.out.println(Capacity.SMALL);
 //        System.out.println(lada);
+//        for (Transport transport : transports) {
+//            printInfo(transport);
+//        }
+
+
+        ServiceStation serviceStation = new ServiceStation();
+
+        serviceStation.addTruck(kamaz);
+        serviceStation.addCar(bmw);
+        serviceStation.addTruck(volvo);
+        serviceStation.service();
+        serviceStation.service();
+
+        System.out.println(serviceStation);
+    }
+
+
+    private static void printInfo(Transport transport) {
+        System.out.println(transport.getBrand() + " " + transport.getModel() + ". Водитель: ");
+        for (Driver driver : transport.getDrivers()) {
+            System.out.println(driver.getFullName());
+        }
+        System.out.println(transport.getSponsors());
+        System.out.println("Механики: " + transport.getMechanics());
+        System.out.println();
     }
 
     private static void getDiagnosed(Transport... transports) {
