@@ -1,9 +1,12 @@
 package Racing;
 
+import java.util.ArrayList;
+
 public class Bus extends Transport implements Competing {
     private int maxSpeed;
     private double bestLap;
-    private Capacity capacity;
+    private final Capacity capacity;
+
 
 
 
@@ -41,6 +44,11 @@ public class Bus extends Transport implements Competing {
     public boolean getDiagnosed() {
         System.out.println(getBrand()+" в диагностики не нуждается!");
         return true;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("Автобус "+getBrand()+ getModel()+" починина" );
     }
 
     @Override

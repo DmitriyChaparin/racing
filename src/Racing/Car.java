@@ -1,5 +1,7 @@
 package Racing;
 
+import java.util.ArrayList;
+
 public class Car extends Transport implements Competing {
     private int maxSpeed;
     private double bestLap;
@@ -8,10 +10,17 @@ public class Car extends Transport implements Competing {
 
 
 
-    public Car(String brand, String model, double engineVolume,BodyType bodyType) {
+
+
+
+
+    public Car(String brand, String model, double engineVolume,BodyType bodyType ) {
         super(brand, model, engineVolume);
         this.bodyType=bodyType;
+
+
     }
+
 
     public BodyType getBodyType() {
         return bodyType;
@@ -40,6 +49,11 @@ public class Car extends Transport implements Competing {
     @Override
     public boolean getDiagnosed() {
 return Math.random()>0.7;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("Машина "+getBrand()+ getModel()+" починина" );
     }
 
     @Override
