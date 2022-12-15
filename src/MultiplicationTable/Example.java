@@ -30,7 +30,7 @@ public class Example {
 
     @Override
     public int hashCode() {
-        return Objects.hash(a) + Objects.hashCode(b);
+        return Objects.hashCode(a) + Objects.hashCode(b);
     }
 
     @Override

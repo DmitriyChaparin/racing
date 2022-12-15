@@ -1,7 +1,9 @@
 package Racing;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Test {
     public static void main(String[] args) {
@@ -28,9 +30,25 @@ public class Test {
         DriverC<Racing.Truck> vlad = new Racing.DriverC<>("Гоншиков Владислав Кириллович", "D", 2);
         DriverD<Racing.Bus> nina = new Racing.DriverD<>("Пазикова Нина Сергеевна", "D", 0);
 
+        Set<Driver> drivers = new HashSet<>();
+        drivers.add(misha);
+        drivers.add(anna);
+        drivers.add(vlad);
+        drivers.add(nina);
+        drivers.add(nina);
+        drivers.add(vova);
+        System.out.println(drivers);
+
         Mechanic<Car> gena = new Mechanic<>("Гайкин Генадий", "MSI");
         Mechanic<Car> kolia = new Mechanic<>("Колёсов Николай", "USB");
         Mechanic<Car> lena = new Mechanic<>("Шурупова Елена", "CNN");
+
+        Set<Mechanic>mechanics = new HashSet<>();
+        mechanics.add(gena);
+        mechanics.add(kolia);
+        mechanics.add(lena);
+        System.out.println(mechanics);
+
 
         Sponsors tatneft = new Sponsors("ТатНефть", 3000000);
         Sponsors azot = new Sponsors("ТольяттиАзот", 1500000);
@@ -49,8 +67,13 @@ public class Test {
         paz.addSponsors(michelin);
 
 
-        List<Transport> transports = List.of(audi, volvo, paz);
-
+      Set<Transport> transports = new HashSet<> ();
+        transports.add(audi);
+        transports.add(bmw);
+        transports.add(kamaz);
+        transports.add(porsche);
+        transports.add(paz);
+        System.out.println(transports);
 
         //  getDiagnosed(audi, bmw, porsche, lada,
 // paz, liaz, gaz, volgabus,
